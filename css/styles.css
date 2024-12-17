@@ -4,21 +4,12 @@
     box-sizing: border-box;
 }
 
-body{
-    background-color:darkmagenta;
-    color: white;
-}
+
 nav ul{
     list-style: none;
 }
-a{
-    text-decoration: none;
-    font-size: 23px;
-    color: white;
-}
-li a img{
-    width: 40px;
-}
+
+
 ul{
     padding: 10px;
     display: flex;
@@ -26,6 +17,7 @@ ul{
     align-items: center;
     justify-content: center;
     background-color: black;
+    padding: 10px;
 }
 li{
     padding: 5px;
@@ -41,5 +33,24 @@ li:hover{
     height: 350px;
     border: 1px solid black;
     overflow: hidden;
-    background-image: url("../images/nature.jpg");
+    display: grid;
+    grid-template-rows: 3fr 1fr;
+
+}
+
+
+#articleContainer{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 20px;
+}
+
+h1.titlePage{
+    text-align: center;
+    padding: 20px;
+}
+.cardInfo{
+    padding: 10px;
 }

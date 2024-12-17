@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+main{
+    display: grid;
+    grid-template-columns: 250px calc(100% - 250px);
+    height: 90vh;
+}
+
+.menuGauche{
+    border: 1px solid black;
+}
+.menuDroit{
+    border: 1px solid black;
+}
+.buttons{
+    text-align: center;
+    padding: 10px;
+    background-color: blueviolet;
+    border: 1px solid black;
+}
