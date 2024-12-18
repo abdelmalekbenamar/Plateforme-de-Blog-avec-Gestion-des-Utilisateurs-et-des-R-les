@@ -1,5 +1,16 @@
 <?php 
 session_start();
+
+$server = "localhost";
+$user = "root";
+$password = "azl,kkk!";
+$database = "blog";
+
+$connection = mysqli_connect($server, $user, $password, $database);
+$sql_command = "SELECT id, title, image, article, idUser FROM articles;";
+$action = mysqli_query($connection, $sql_command);
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,55 +31,23 @@ session_start();
         <h1 class="titlePage">Liste des articles:</h1>
 
         <div id="articleContainer">
-
-            <div id="articleCard">
-                <img class="test" src="./images/nature.jpg" alt="">
+        
+        <?php while($line = mysqli_fetch_assoc($action)): ?>
+            <div id="<?php echo $line["id"]; ?>" class="articleCard">
+                <img class="test" src="./images/<?php echo $line["image"] ?>" alt="">
                 <div class="cardInfo">
-                    <h3 class="articleTitle">Titre de essai</h3>
-                    <p>Lorem ipsum, d Saepe sit exercitationem odio rerum facere dolorum recusandae, provident illo! A, neque at?</p>
+                    <a href="">
+                        <h3 class="articleTitle"><?php echo $line["title"] ?></h3>
+                        <p><?php echo $line["article"]; ?></p>
+                    </a>
                 </div>
             </div>
+        <?php endwhile; ?>
 
-            <div id="articleCard">
-                <img class="test" src="./images/nature.jpg" alt="">
-                <div class="cardInfo">
-                    <h3 class="articleTitle">Titre de essai</h3>
-                    <p>Lorem ipsum, d Saepe sit exercitationem odio rerum facere dolorum recusandae, provident illo! A, neque at?</p>
-                </div>
-            </div>
+   
 
-            <div id="articleCard">
-                <img class="test" src="./images/nature.jpg" alt="">
-                <div class="cardInfo">
-                    <h3 class="articleTitle">Titre de essai</h3>
-                    <p>Lorem ipsum, d Saepe sit exercitationem odio rerum facere dolorum recusandae, provident illo! A, neque at?</p>
-                </div>
-            </div>
 
-            <div id="articleCard">
-                <img class="test" src="./images/nature.jpg" alt="">
-                <div class="cardInfo">
-                    <h3 class="articleTitle">Titre de essai</h3>
-                    <p>Lorem ipsum, d Saepe sit exercitationem odio rerum facere dolorum recusandae, provident illo! A, neque at?</p>
-                </div>
-            </div>
-
-            <div id="articleCard">
-                <img class="test" src="./images/nature.jpg" alt="">
-                <div class="cardInfo">
-                    <h3 class="articleTitle">Titre de essai</h3>
-                    <p>Lorem ipsum, d Saepe sit exercitationem odio rerum facere dolorum recusandae, provident illo! A, neque at?</p>
-                </div>
-            </div>
-
-            <div id="articleCard">
-                <img class="test" src="./images/nature.jpg" alt="">
-                <div class="cardInfo">
-                    <h3 class="articleTitle">Titre de essai</h3>
-                    <p>Lorem ipsum, d Saepe sit exercitationem odio rerum facere dolorum recusandae, provident illo! A, neque at?</p>
-                </div>
-            </div>
-
+            
         </div>
     </main>
 

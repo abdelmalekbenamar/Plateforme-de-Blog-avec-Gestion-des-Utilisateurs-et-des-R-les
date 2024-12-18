@@ -6,6 +6,13 @@
             <li><a class="no-underline text-[23px] text-[white]" href="../inscription.php">S'inscrire</a></li>
             <li><a class="no-underline text-[23px] text-[white]" href="../connection.php">Se connecter</a></li>
             <?php endif; ?>
+
+<?php if(isset($_SESSION["rule"]) && $_SESSION["rule"] == 1): ?>
+
+    <li><a class="no-underline text-[23px] text-[white]" href="../ajouterArticle.php">Ajouter article</a></li>
+<?php endif; ?>
+
+
 <?php if(isset($_SESSION["username"])): ?>     
             <li><a class="no-underline text-[23px] text-[white]" href="../parametres.php">Paramètres</a></li>
 

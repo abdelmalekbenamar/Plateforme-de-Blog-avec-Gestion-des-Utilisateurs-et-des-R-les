@@ -28,7 +28,7 @@ li:hover{
     background-color: grey;
     border-radius: 5px;
 }
-#articleCard{
+.articleCard{
     width: 300px;
     height: 350px;
     border: 1px solid black;
@@ -52,5 +52,29 @@ h1.titlePage{
     padding: 20px;
 }
 .cardInfo{
+padding: 10px;
+}
+
+
+/* Style pour la page ajouter un article */
+
+.formAjouterArticle{
+    width: 500px;
+    border: 1px solid black;
     padding: 10px;
+    color: black;
+    margin: 50px auto 0 auto;
+}
+label{
+    color: white;
+    margin-top: 15px;
+}
+input, textarea{
+    display: block;
+    width: 100%;
+}
+
+.articleTitle{
+    font-size: 18px;
+    font-weight: bolder;
 }
