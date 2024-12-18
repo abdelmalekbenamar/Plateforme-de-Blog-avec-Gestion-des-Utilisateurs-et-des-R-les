@@ -11,7 +11,7 @@
 
 <?php include_once("./php/navBar.php"); ?>
     <main class="flex justify-center items-center h-[90vh]">
-        <form class="w-[600px] border p-[30px] border-solid border-[black] text-[white]" action="" method="POST">
+        <form class="w-[600px] border p-[30px] border-solid border-[black] text-[white]" action="./php/connectionFormSubmit.php" method="POST">
         <label class="mt-2.5 mx-auto" for="">
             Email :
             <input class="text-[black] w-full h-[26px] m-auto rounded-[5px]" name="mail" type="email">
