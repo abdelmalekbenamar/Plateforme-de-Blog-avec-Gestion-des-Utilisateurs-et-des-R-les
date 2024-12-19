@@ -33,15 +33,17 @@ $action = mysqli_query($connection, $sql_command);
         <div id="articleContainer">
         
         <?php while($line = mysqli_fetch_assoc($action)): ?>
+        
             <div id="<?php echo $line["id"]; ?>" class="articleCard">
                 <img class="test" src="./images/<?php echo $line["image"] ?>" alt="">
                 <div class="cardInfo">
-                    <a href="">
+                    <a href="./lireArticle.php?idArticle=<?php echo $line["id"]; ?>">
                         <h3 class="articleTitle"><?php echo $line["title"] ?></h3>
                         <p><?php echo $line["article"]; ?></p>
                     </a>
                 </div>
             </div>
+
         <?php endwhile; ?>
 
    

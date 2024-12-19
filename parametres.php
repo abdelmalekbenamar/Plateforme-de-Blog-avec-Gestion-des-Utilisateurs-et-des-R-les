@@ -21,8 +21,8 @@ session_start();
 <main>
     <div class="menuGauche">
         <div class="buttonGauche">
-            <div class="buttons"><a href="./php/articles.php">Articles</a></div>
-            <div class="buttons"><a href="./php/commentaires.php">Commentaires</a></div>
+            <div class="buttons"><a href="./articles.php">Articles</a></div>
+            <div class="buttons"><a href="./commentaires.php">Commentaires</a></div>
         </div>
     </div>
 
