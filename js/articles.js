@@ -22,12 +22,24 @@ modifier.forEach(el => {
         articleModifyForm.hidden = false;
         const leTitreAAfficher = articleModifyForm.querySelector("input.leTitreAAfficher");
         const lArticleAAfficher = articleModifyForm.querySelector("textarea.lArticleAAfficher");
+        const hiddenInputId = articleModifyForm.querySelector(".idArticleModifyForm");
         const leParentNode = el.parentNode.previousElementSibling;
+        const nodeGlobal = el.parentNode.parentNode;
+        const idArticle = nodeGlobal.id;
+        hiddenInputId.value = idArticle;
         let lArticle = leParentNode.textContent;
         let leTitre = leParentNode.previousElementSibling.textContent;
-        console.log(lArticle, leTitre);
         leTitreAAfficher.value = leTitre;
         lArticleAAfficher.textContent = lArticle;
+    });
+});
+
+supprimer.forEach(el => {
+    el.addEventListener("click", () => {
+        articleDeleteForm.hidden = false;
+        let idArticle = el.parentNode.parentNode.id;
+        let hiddenInput = articleDeleteForm.querySelector(".idArticleDelForm");
+        hiddenInput.value = idArticle;
     });
 });
 
