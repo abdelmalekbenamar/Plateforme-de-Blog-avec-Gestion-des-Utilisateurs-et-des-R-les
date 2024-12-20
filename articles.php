@@ -14,6 +14,8 @@ if($_SESSION["rule"] == 1){
 }else if($_SESSION == 2){
     $result = mysqli_query($connection, $admin_command);
 }
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,15 +65,15 @@ if($_SESSION["rule"] == 1){
 <form action="./php/modifierArticle.php" hidden method="POST" enctype="multipart/form-data" class="articleModifyForm w-[500px] absolute left-[calc(50%_-_250px)] border p-5 border-solid border-[black] top-[100px]">
     <label for="">
         Titre:
-        <input style="color: black;" class="leTitreAAfficher" type="text">
+        <input style="color: black;" name="titre" class="leTitreAAfficher" type="text">
     </label>
     <label for="">
         Article:
-        <textarea style="color: black;" class="lArticleAAfficher" name="" id=""></textarea>
+        <textarea style="color: black;" class="lArticleAAfficher" name="article" id=""></textarea>
     </label>
     <label for="">
         Image:
-        <input type="file">
+        <input name="lImage" type="file">
     </label>
     <input hidden name="idArticleToModify" class="idArticleModifyForm" type="text">
     <div class="articleModifyButtons mt-5">

@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if(isset($_FILES["articleImage"])){ 
+if(isset($_FILES["articleImage"])){
     $fileName = date("YmdHis"); 
     $fileInfo = pathinfo($_FILES["articleImage"]["name"]);
     $fileName .= "." . $fileInfo["extension"];
