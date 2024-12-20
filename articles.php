@@ -60,7 +60,7 @@ if($_SESSION["rule"] == 1){
     </div>
 </main>
     
-<form action="" hidden method="POST" enctype="multipart/form-data" class="articleModifyForm w-[500px] absolute left-[calc(50%_-_250px)] border p-5 border-solid border-[black] top-[100px]">
+<form action="./php/modifierArticle.php" hidden method="POST" enctype="multipart/form-data" class="articleModifyForm w-[500px] absolute left-[calc(50%_-_250px)] border p-5 border-solid border-[black] top-[100px]">
     <label for="">
         Titre:
         <input style="color: black;" class="leTitreAAfficher" type="text">
@@ -80,7 +80,7 @@ if($_SESSION["rule"] == 1){
     </div>
 </form>
 
-<form action="" hidden class="articleDeleteForm w-[500px] text-center absolute left-[calc(50%_-_250px)] border border-solid border-[black] top-[100px]">
+<form action="./php/supprimerArticle.php" method="POST" hidden class="articleDeleteForm w-[500px] text-center absolute left-[calc(50%_-_250px)] border border-solid border-[black] top-[100px]">
     <div>Êtes vous sûr de supprimer cet article ?</div>
     <input hidden name="idArticleASupprimee" class="idArticleDelForm" type="text">
     <div class="articleDeleteButtons mt-[60px]">
