@@ -13,19 +13,14 @@ session_start();
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-[midnightblue] text-[white]">
-
-
-
-<?php include_once('./php/navBar.php'); ?>
+    <?php include_once("./php/navBar.php"); ?>
 
 <main>
     <div class="menuGauche">
         <div class="buttonGauche">
             <div class="buttons"><a href="./articles.php">Articles</a></div>
             <div class="buttons"><a href="./commentaires.php">Commentaires</a></div>
-            <?php if($_SESSION["rule"] == 2): ?>
             <div class="buttons"><a href="./users.php">Users</a></div>
-            <?php endif; ?>
         </div>
     </div>
 
@@ -34,6 +29,5 @@ session_start();
 
     </div>
 </main>
-    
 </body>
 </html>
