@@ -1,17 +1,15 @@
 <?php 
-    session_start();
-    // echo $_GET["idArticle"];
-    $server = "localhost";
-    $user = "root";
-    $password = "azl,kkk!";
-    $database = "blog";
+session_start();
 
-    $connection = mysqli_connect($server, $user, $password, $database);
-    $sql_command = "SELECT title, image, article, idUser FROM articles WHERE id = {$_GET["idArticle"]};";
-    $result = mysqli_query($connection, $sql_command);
+$server = "localhost";
+$user = "root";
+$password = "azl,kkk!";
+$database = "blog";
 
-    $sql_command_comments = "SELECT id, comment FROM comments WHERE idArticle = {$_GET["idArticle"]};";
-    $result_comments = mysqli_query($connection, $sql_command_comments);
+$connection = mysqli_connect($server, $user, $password, $database);
+$sql_command = "SELECT articles.id, title, image, article, articles.idUser, COUNT(likes.idArticle) AS likess FROM articles JOIN likes ON articles.id = likes.idArticle group by likes.idArticle order by likess DESC;";
+$action = mysqli_query($connection, $sql_command);
+
 
 ?>
 <!DOCTYPE html>
@@ -23,43 +21,39 @@
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <?php include_once("./php/navBar.php"); ?>
+<body class="bg-[midnightblue] text-[white]">
 
-    <main class="main w-4/5 mt-5 mb-0 mx-auto">
 
-    <?php while($line = mysqli_fetch_assoc($result)): ?>
-        <img class="imageArticle block m-auto" src="./images/<?php echo $line["image"]; ?>" alt="">
-        <h1 class="titreArticle text-3xl font-[bold] mt-3 mb-3"><?php echo $line["title"]; ?></h1>
-        <p class="articleArticle"><?php echo $line["article"]; ?></p>
+<?php include_once('./php/navBar.php'); ?>
 
-    <?php endwhile; ?>
 
-    <?php if(isset($_SESSION["username"])): ?>
-        <form action="./php/ajouterCommentaireSubmit.php" method="POST">
-        <label for="like">
-            <input hidden name="like" value="like" class="likeCheckbox" type="checkbox">
-            <img src="./images/unliked.png" class="likedButton w-10 block cursor-pointer mx-auto my-2.5" alt="">
-        </label>
-            <input hidden name="idArticle" value="<?php echo $_GET["idArticle"]; ?>" type="text">
-            <textarea placeholder="Votre commentaire ici!" name="commentaire" class="articleTxtArea border border-solid border-[red]"></textarea>
-            <button type="submit" class="bg-[blueviolet] mt-2.5 p-[5px] rounded-[5px]">Enregistrer</button>
-        </form>
-    <?php endif; ?>
+    <main>
+        <h1 class="titlePage">Liste des articles:</h1>
 
-        <div class="commentaires m-2.5">
-
-        <?php while($line_comments = mysqli_fetch_assoc($result_comments)): ?>
-            <div class="cardComment mb-5 bg-[rgb(230,217,217)] p-[5px] rounded-[5px]">
-                <h2 class="commentTitle"><?php echo $line_comments["id"] . $_SESSION["username"]; ?></h2>
-                <p class="commentContent"><?php echo $line_comments["comment"]; ?></p>
+        <div id="articleContainer">
+        
+        <?php while($line = mysqli_fetch_assoc($action)): ?>
+        
+            <div id="<?php echo $line["id"]; ?>" class="articleCard">
+                <img class="test" src="./images/<?php echo $line["image"] ?>" alt="">
+                <div class="cardInfo">
+                    <a href="./lireArticle.php?idArticle=<?php echo $line["id"]; ?>">
+                        <h3 class="articleTitle"><?php echo $line["title"] ?></h3>
+                        <p><?php echo $line["article"]; ?></p>
+                    </a>
+                </div>
             </div>
-        <?php endwhile; ?>
-        </div>
 
+        <?php endwhile; ?>
+
+   
+
+
+            
+        </div>
     </main>
 
 
-    <script src="./js/lireArticleLikeButton.js"></script>
+
 </body>
 </html>
