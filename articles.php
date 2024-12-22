@@ -9,11 +9,13 @@ $connection = mysqli_connect($server, $user, $password, $database);
 $user_command = "SELECT * FROM articles WHERE idUser = {$_SESSION["idUser"]};";
 $admin_command = "SELECT * FROM articles;";
 
+
 if($_SESSION["rule"] == 1){
     $result = mysqli_query($connection, $user_command);
-}else if($_SESSION == 2){
+}else if($_SESSION["rule"] == 2){
     $result = mysqli_query($connection, $admin_command);
 }
+
 
 
 ?>

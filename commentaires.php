@@ -8,7 +8,7 @@ $database = "blog";
 
 $connection = mysqli_connect($server, $user, $password, $database);
 $sql_user_command = "SELECT comments.id, comment, title FROM comments JOIN articles ON articles.id = comments.idArticle WHERE comments.idUser = {$_SESSION["idUser"]}";
-$sql_admin_command = "SELECT * FROM comment";
+$sql_admin_command = "SELECT comments.id, comment, title FROM comments JOIN articles ON articles.id = comments.idArticle";
 
 if($_SESSION["rule"] == 1){
     $action = mysqli_query($connection, $sql_user_command);
